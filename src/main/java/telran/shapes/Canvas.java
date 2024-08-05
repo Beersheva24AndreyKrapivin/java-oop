@@ -45,17 +45,17 @@ public class Canvas implements Shape {
         //containing one two squares
         // for this example the method should return 5
         int count = 0;
-        return countInsideCanvas(this, count);
-    }
 
-    private static int countInsideCanvas(Canvas canvas, int count) {
-        for (int i = 0; i < canvas.shapes.length; i++) {
-            if (canvas.shapes[i] instanceof Canvas) {
-                count = countInsideCanvas((Canvas)canvas.shapes[i], count);    
+        for (int i = 0; i < shapes.length; i++) {
+            if (shapes[i] instanceof Canvas) {
+                Canvas cuCanvas = (Canvas)shapes[i];
+                count = count + cuCanvas.count();    
             }
             count++;
         }
+
         return count;
+
     }
 
 }
